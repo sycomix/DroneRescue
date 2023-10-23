@@ -46,13 +46,13 @@ def OrbitAnimal(cx, cy, radius, speed, altitude, camera_angle, animal):
         dy = y - pos.y_val
         yaw = airsim.to_eularian_angles(
             client.getMultirotorState().kinematics_estimated.orientation)[2]
-        print("yaw is {}".format(yaw))
+        print(f"yaw is {yaw}")
 
-    print("location is off by {},{}".format(dx, dy))
+    print(f"location is off by {dx},{dy}")
 
     o = airsim.to_eularian_angles(
         client.getMultirotorState().kinematics_estimated.orientation)
-    print("yaw is {}".format(o[2]))
+    print(f"yaw is {o[2]}")
 
     # let's orbit around the animal and take some photos
     nav = drone_orbit.OrbitNavigator(photo_prefix=animal, radius=radius, altitude=altitude, speed=speed, iterations=1, center=[
